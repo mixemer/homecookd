@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import history from '../../../Utils/history';
-import { Button, Modal, Header, Image, Item } from 'semantic-ui-react';
-import CheckOut from './CheckOut';
+import { Button, Modal, Item } from 'semantic-ui-react';
 import CheckOutItem from './CheckOutItem';
 import { connect } from 'react-redux';
 import { clearCart } from '../../../actions/cartActions';
@@ -58,8 +57,8 @@ class CheckOutScreen extends Component {
         <Modal.Content scrolling>
           <Item.Group relaxed divided unstackable>
             {
-              this.props.cart.cart.map(order =>
-                <CheckOutItem key={order} orderId={order} />
+              this.props.cart.cart.map((order, i) =>
+                <CheckOutItem key={i} orderId={order} />
               )
             }
           </Item.Group>
